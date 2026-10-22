@@ -563,3 +563,7 @@ textarea.in{min-height:96px;resize:vertical}
 }
 
 @media (max-width:900px){.tbl .r>.acell::before,.tbl .r>.pcell::before{display:none}.tbl .r>.acell,.tbl .r>.pcell{grid-column:1/-1}}
+
+@keyframes flash{0%{box-shadow:0 0 0 0 #0047d600}15%{box-shadow:0 0 0 4px var(--azul),0 12px 30px #0047d640;background:#e8efff}100%{box-shadow:0 0 0 0 #0047d600}}
+.flash{animation:flash 2.2s ease-out}
+@media (prefers-reduced-motion:reduce){.flash{animation:none;box-shadow:0 0 0 3px var(--azul)}}
