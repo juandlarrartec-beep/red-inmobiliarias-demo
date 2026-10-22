@@ -567,3 +567,7 @@ textarea.in{min-height:96px;resize:vertical}
 @keyframes flash{0%{box-shadow:0 0 0 0 #0047d600}15%{box-shadow:0 0 0 4px var(--azul),0 12px 30px #0047d640;background:#e8efff}100%{box-shadow:0 0 0 0 #0047d600}}
 .flash{animation:flash 2.2s ease-out}
 @media (prefers-reduced-motion:reduce){.flash{animation:none;box-shadow:0 0 0 3px var(--azul)}}
+
+.kcard{cursor:pointer;transition:box-shadow .15s,transform .15s}
+.kcard:hover{box-shadow:0 10px 26px #16161a1f;transform:translateY(-2px)}
+.kcard:focus-visible{outline:2px solid var(--azul);outline-offset:2px}
