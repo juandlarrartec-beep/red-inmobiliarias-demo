@@ -2,78 +2,24 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Red de Inmobiliarias · Puyella</title>
-<style>
-:root{--papel:#F2F1EC;--tinta:#1b1b1f;--suave:#6b6b72;--linea:#d9d6cc;--rojo:#cd181f;--azul:#0047d6;--sup:#fff}
-@media (prefers-color-scheme:dark){:root{--papel:#141416;--tinta:#f2f1ec;--suave:#a0a0a8;--linea:#2c2c31;--sup:#1d1d21}}
-*{box-sizing:border-box;margin:0}
-body{background:var(--papel);color:var(--tinta);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
-header{padding:48px 0 32px}
-.marca{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.14em;font-size:13px;text-transform:uppercase}
-.marca i{width:26px;height:26px;border-radius:7px;background:var(--rojo);color:#fff;display:grid;place-items:center;font:700 14px/1 sans-serif;letter-spacing:0}
-h1{font-size:clamp(32px,7vw,56px);line-height:1.05;letter-spacing:-.02em;font-weight:700;margin:28px 0 14px}
-header p{max-width:640px;color:var(--suave);font-size:clamp(16px,2.4vw,19px)}
-.acciones{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.btn{display:inline-block;padding:11px 18px;border-radius:980px;font-size:15px;font-weight:500;text-decoration:none;border:1px solid var(--linea);color:var(--tinta);background:var(--sup)}
-.btn.p{background:var(--azul);border-color:var(--azul);color:#fff}
-.nota{font-size:13px;color:var(--suave);margin-top:10px}
-.grid{display:grid;gap:28px;padding-bottom:64px}
-@media (min-width:860px){.grid{grid-template-columns:1fr 1fr;gap:36px 28px}}
-figure{background:var(--sup);border:1px solid var(--linea);border-radius:16px;overflow:hidden}
-figure button{display:block;width:100%;border:0;padding:0;background:none;cursor:zoom-in}
-figure img{display:block;width:100%;height:auto}
-figcaption{display:flex;gap:10px;align-items:baseline;padding:14px 16px;font-weight:600}
-figcaption span{font:500 12px/1 ui-monospace,Menlo,monospace;color:var(--rojo);letter-spacing:.06em}
-footer{border-top:1px solid var(--linea);padding:24px 0 40px;font-size:13px;color:var(--suave)}
-#vis{position:fixed;inset:0;background:rgba(10,10,12,.94);display:none;flex-direction:column;z-index:10}
-#vis.on{display:flex}
-#vis .barra{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;color:#fff;font-size:14px;gap:8px}
-#vis .barra b{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-#vis button{background:#ffffff1f;color:#fff;border:0;border-radius:980px;padding:8px 14px;font-size:14px;cursor:pointer}
-#vis .lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch}
-#vis img{display:block;width:max(100%,900px);height:auto;margin:0 auto}
-</style>
+<meta name="theme-color" content="#18181f">
+<title>Red de inmobiliarias · Puyella</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-<div class="wrap">
-<header>
-  <div class="marca"><i>P</i>Puyella · Bienes raíces</div>
-  <h1>Red de inmobiliarias</h1>
-  <p>Plataforma para comercializar la cartera de Puyella y el proyecto Livera con varias inmobiliarias de la ciudad a la vez, sin que dos ofrezcan la misma unidad, dos reclamen al mismo comprador o cada una cotice un precio distinto.</p>
-  <div class="acciones">
-    <a class="btn p" href="#pantallas">Ver las 13 pantallas</a>
-    <a class="btn" href="prototipo-escritorio.html">Prototipo completo (escritorio)</a>
-  </div>
-  <p class="nota">Tocá una pantalla para verla grande; en el teléfono podés hacer zoom y moverte.</p>
-</header>
-<main id="pantallas" class="grid"></main>
-<footer>Diseño de la plataforma · versión de presentación. Los datos que se ven son de ejemplo.</footer>
-</div>
-
-<div id="vis" role="dialog" aria-modal="true" aria-label="Pantalla ampliada">
-  <div class="barra"><button id="ant">‹ Anterior</button><b id="tit"></b><button id="sig">Siguiente ›</button><button id="cer">Cerrar</button></div>
-  <div class="lienzo"><img id="gran" alt=""></div>
-</div>
-
-<script>
-const P=[["01-ingreso","Ingreso"],["02-alta","Alta con matrícula"],["03-panel","Panel con el stock"],["04-catalogo","Catálogo por tipo"],["05-ficha","Ficha de la unidad"],["06-livera","Livera · lista de precios"],["07-consultas","Consultas"],["08-comisiones","Comisiones"],["09-adheridas","Administración de la red"],["10-acceso","Acceso por inmobiliaria"],["11-operaciones","Operaciones"],["12-inversor","Panel del inversor"],["13-sistema","Sistema de diseño"]];
-const g=document.getElementById("pantallas"),v=document.getElementById("vis"),gran=document.getElementById("gran"),tit=document.getElementById("tit");
-let i=0;
-P.forEach(([f,t],n)=>{
-  const fig=document.createElement("figure");
-  fig.innerHTML=`<button type="button" aria-label="Ampliar: ${t}"><img loading="${n<2?"eager":"lazy"}" src="img/${f}.webp" alt="${t}"></button><figcaption><span>${String(n+1).padStart(2,"0")}</span>${t}</figcaption>`;
-  fig.querySelector("button").onclick=()=>abrir(n);
-  g.appendChild(fig);
-});
-function abrir(n){i=(n+P.length)%P.length;gran.src=`img/${P[i][0]}.webp`;gran.alt=P[i][1];tit.textContent=`${i+1}/${P.length} · ${P[i][1]}`;v.classList.add("on");document.body.style.overflow="hidden";v.querySelector(".lienzo").scrollTo(0,0)}
-function cerrar(){v.classList.remove("on");document.body.style.overflow=""}
-document.getElementById("sig").onclick=()=>abrir(i+1);
-document.getElementById("ant").onclick=()=>abrir(i-1);
-document.getElementById("cer").onclick=cerrar;
-addEventListener("keydown",e=>{if(!v.classList.contains("on"))return;if(e.key==="Escape")cerrar();if(e.key==="ArrowRight")abrir(i+1);if(e.key==="ArrowLeft")abrir(i-1)});
-</script>
+<div id="root"></div>
+<div id="modal"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<noscript><p style="padding:24px">Esta demostración necesita JavaScript.</p></noscript>
+<script src="js/data.js"></script>
+<script src="js/core.js"></script>
+<script src="js/v-inmo.js"></script>
+<script src="js/v-admin.js"></script>
+<script>APP.start();</script>
 </body>
 </html>
